@@ -130,9 +130,20 @@ helm upgrade --install cluster-autoscaler autoscaler/cluster-autoscaler \
 9. kubectl -n kube-system get pods | grep cluster-autoscaler
 
 10. Let's scale our deployment
-
 ```
 kubectl scale deployment stress-test --replicas=20
+kubectl get nodes
+kubectl get pods
+kubectl scale deployment stress-test --replicas=50
+kubectl get nodes
+kubectl get pods
 
+kubectl get pods -n kube-system
+kubectl logs -n kube-system
+kubectl get nodes
+kubectl get pods
+
+kubectl delete deployment stress-test -n kube-system
+kubectl get nodes
+kubectl get pods
 ```
-
