@@ -60,6 +60,19 @@ allowedTopologies:  # Optional: Restrict to specific AZs
         values:
           - us-west-2a  # Example AZ
 
+File will be:
+
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  name: ebs-gp3-sc
+provisioner: ebs.csi.aws.com
+parameters:
+  type: gp3
+  encrypted: "true"
+volumeBindingMode: WaitForFirstConsumer
+reclaimPolicy: Delete  # Deletes volume when PVC is deleted; use "Retain" for persistence
+
 ```
 
 5. Make it the default storage class
