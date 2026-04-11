@@ -1,7 +1,9 @@
 # Check the nodegroup of the Cluster
 
 ```
-eksctl get nodegroup --cluster <cluster_name> --name <node_group_name>
+aws eks update-kubeconfig --region ap-south-1 --name <my_cluster>
+
+eksctl get nodegroup --region ap-south-1 --cluster <cluster_name> --name <node_group_name> 
 
 ```
 
