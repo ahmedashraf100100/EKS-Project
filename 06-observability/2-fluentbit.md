@@ -1,10 +1,14 @@
 ## Configure fluentbit to send logs to cloudwatch
 
+
 1. Create a namespace named `amazon-cloudwatch`
 2. Create a configmap that defines the fluentbit
-```
+
+3- k create ns amazon-cloudwatch
+
 ClusterName=<cluster-name>
 RegionName=<cluster-region>
+
 FluentBitHttpPort='2020'
 FluentBitReadFromHead='Off'
 [[ ${FluentBitReadFromHead} = 'On' ]] && FluentBitReadFromTail='Off'|| FluentBitReadFromTail='On'
@@ -20,7 +24,7 @@ kubectl create configmap fluent-bit-cluster-info \
 ```
 
 
-3. Create an IAM role with the following trust-policy
+4. Create an IAM role with the following trust-policy
 
 ```
 {
