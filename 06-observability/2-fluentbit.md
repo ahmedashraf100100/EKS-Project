@@ -9,6 +9,8 @@
 ClusterName=<cluster-name>
 RegionName=<cluster-region>
 
+=================================================
+
 FluentBitHttpPort='2020'
 FluentBitReadFromHead='Off'
 [[ ${FluentBitReadFromHead} = 'On' ]] && FluentBitReadFromTail='Off'|| FluentBitReadFromTail='On'
